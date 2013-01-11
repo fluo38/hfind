@@ -12,6 +12,19 @@ public class HFind {
 	private int     min_depth = 1; // Included!
 	private int     max_depth = 2; // Included!
 	
+	public void setMaxDepth(int max_depth) {
+		this.max_depth = max_depth;
+	}
+
+	public int getMinDepth() {
+		return min_depth;
+	}
+
+	public void setMinDepth(int min_depth) {
+		this.min_depth = min_depth;
+	}
+
+
 	public void hfind(String directory_root) {
 		LinkedList<File> directory_list = new LinkedList<File>();
 		directory_list.add(new File(directory_root));
@@ -58,4 +71,3 @@ public class HFind {
 		System.exit(0);
 	}
 }
-
