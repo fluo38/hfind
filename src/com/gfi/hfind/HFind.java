@@ -10,7 +10,24 @@ public class HFind {
 	private boolean display_files       = false;
 	private boolean display_directories = true;
 	private int     min_depth = 0; // Not implemented yet!
+	private int     max_depth = 0; // Not implemented yet!
 	
+	public int getMaxDepth() {
+		return max_depth;
+	}
+
+	public void setMaxDepth(int max_depth) {
+		this.max_depth = max_depth;
+	}
+
+	public int getMinDepth() {
+		return min_depth;
+	}
+
+	public void setMinDepth(int min_depth) {
+		this.min_depth = min_depth;
+	}
+
 	public void hfind(LinkedList<File> directory_list, int max_depth) {
 		File current;
 		
@@ -43,10 +60,30 @@ public class HFind {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		int i;
 		HFind object = new HFind();
 		LinkedList<File> list = new LinkedList<File>();
 		
-		list.add(new File("/"));
+		if (args.length > 0) {
+			i = 0;
+			while (i < (args.length - 1)) {
+				if (args[i].equals("--max-depth")) {
+					object.setMaxDepth(Integer.getInteger(args[i + 1]));
+					i++;
+				} else if (args[i].equals("--min-depth")) {
+					object.setMinDepth(Integer.getInteger(args[i + 1]));
+					i++;
+				} else {
+					System.err.println("Unknown argument \"" + args[i] + "\"...");
+					System.exit(1);
+				}
+				i++;
+			}
+			list.add(new File(args[i]));
+		} else {
+			//list.add(new File("."));
+			list.add(new File("/"));
+		}
 		
 		object.hfind(list, 2);
 		
