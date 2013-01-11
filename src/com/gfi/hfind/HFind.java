@@ -6,7 +6,6 @@ import java.util.*;
 public class HFind {
 
 	// Options
-	//private boolean follow_links;
 	private boolean display_files       = false;
 	private boolean display_directories = true;
 	private int     min_depth = 1; // Included!
