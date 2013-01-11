@@ -9,8 +9,14 @@ public class HFind {
 	//private boolean follow_links;
 	private boolean display_files       = false;
 	private boolean display_directories = true;
-	private int     min_depth = 1; // Not implemented yet!
-	private int     max_depth = 2;
+	private int     min_depth = 1; // Included!
+	private int     max_depth = 2; // Included!
+	
+	public void hfind(String directory_root) {
+		LinkedList<File> directory_list = new LinkedList<File>();
+		directory_list.add(new File(directory_root));
+		hfind(directory_list);
+	}
 	
 	public void hfind(LinkedList<File> directory_list) {
 		File current;
@@ -46,11 +52,8 @@ public class HFind {
 	 */
 	public static void main(String[] args) {
 		HFind object = new HFind();
-		LinkedList<File> list = new LinkedList<File>();
 		
-		list.add(new File("/"));
-		
-		object.hfind(list);
+		object.hfind("/");
 		
 		System.exit(0);
 	}
