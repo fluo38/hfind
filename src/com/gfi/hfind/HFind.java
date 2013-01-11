@@ -11,6 +11,14 @@ public class HFind {
 	private int     min_depth = 1; // Included!
 	private int     max_depth = 2; // Included!
 	
+	public void setDisplayFiles(boolean display) {
+		display_files = display;
+	}
+	
+	public void setDisplayDirectories(boolean display) {
+		display_directories = display;
+	}
+	
 	public int getMaxDepth() {
 		return max_depth;
 	}
@@ -27,11 +35,14 @@ public class HFind {
 		this.min_depth = min_depth;
 	}
 
-
 	public void hfind(String directory_root) {
 		LinkedList<File> directory_list = new LinkedList<File>();
 		directory_list.add(new File(directory_root));
 		hfind(directory_list);
+	}
+
+	public static void displayUsage() {
+		System.err.println("Usage: hfind [--min-depth x] [--max-depth y] <directory>");
 	}
 	
 	public void hfind(LinkedList<File> directory_list) {
@@ -80,6 +91,10 @@ public class HFind {
 				} else if (args[i].equals("--min-depth")) {
 					object.setMinDepth(Integer.getInteger(args[i + 1]));
 					i++;
+				} else if (args[i].equals("--display-files")) {
+					object.setDisplayFiles(true);
+				} else if (args[i].equals("--display-directories")) {
+					object.setDisplayDirectories(true);
 				} else {
 					System.err.println("Unknown argument \"" + args[i] + "\"...");
 					System.exit(1);
