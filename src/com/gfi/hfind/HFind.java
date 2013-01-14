@@ -41,6 +41,8 @@ public class HFind {
 		hfind(directory_list);
 	}
 
+	/** Display usage message 
+	 */
 	public static void displayUsage() {
 		System.err.println("Usage: hfind [--min-depth x] [--max-depth y] <directory>");
 	}
