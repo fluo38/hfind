@@ -42,7 +42,10 @@ public class HFind {
 	}
 
 	/** Display usage message 
+<<<<<<< HEAD
 	 * Another message
+=======
+>>>>>>> Added some comments
 	 */
 	public static void displayUsage() {
 		System.err.println("Usage: hfind [--min-depth x] [--max-depth y] <directory>");
