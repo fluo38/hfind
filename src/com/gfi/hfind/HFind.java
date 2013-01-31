@@ -35,6 +35,9 @@ public class HFind {
 		this.min_depth = min_depth;
 	}
 
+	/** Just to facilitate hfind access
+	 * @param directory_root a directory in a character string
+	 */
 	public void hfind(String directory_root) {
 		LinkedList<File> directory_list = new LinkedList<File>();
 		directory_list.add(new File(directory_root));
@@ -42,7 +45,6 @@ public class HFind {
 	}
 
 	/** Display usage message 
-	 * Another message
 	 */
 	public static void displayUsage() {
 		System.err.println("Usage: hfind [--min-depth x] [--max-depth y] <directories...>");
@@ -55,6 +57,10 @@ public class HFind {
 		System.err.println("  --help");
 	}
 	
+	/**
+	 * Main method!
+	 * @param directory_list
+	 */
 	public void hfind(LinkedList<File> directory_list) {
 		File current;
 		int depth = 0;
